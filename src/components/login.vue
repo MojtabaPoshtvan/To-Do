@@ -50,7 +50,7 @@ export default {
     },
     methods: {
         post: function(){
-          userService.login(this.email,this.password);
+          this.$router.push('/my-todo')
         }
     }
     

@@ -75,44 +75,9 @@ export default {
       visibility: 'all',
     }
   },
-  
-//Change 'all' to any other deafult key string in back-end
-
-  /*
-  created(){
-    this.$http.get('/categories').then(function(data){
-      this.categories = data;
-      this.categories.forEach(element => {
-        if(element.name === all){
-          this.alltodos.push(element);
-          this.todos = alltodos;
-        }
-      })
-    });
-  },
-
-//Change 'all' to any other deafult key string in back-end
-
-  updated(){
-    this.$http.get('/categories').then(function(data){
-      this.categories = data;
-      this.categories.forEach(element => {
-        if(element.name === all){
-          this.alltodos.push(element);
-          this.todos = alltodos;
-        }
-      })
-    });
-  },
-  */
 
   methods: {
     toggleTodo: function(todo,i) {
-      // this.$http.get('/toggle/'+ todo.id).then(function(data){
-      //  this.$forceUpdate();
-      // });
-
-//Hide for back-end.start
       this.todos[i].tags.forEach((element,index, self) =>{
         if(element === 'done'){
           self[index] = "undone";
@@ -121,7 +86,6 @@ export default {
           self[index] = "done";
         }
       });
-//Hide for back-end.end
     },
 
     filterTodos: function(filter) {
@@ -140,13 +104,7 @@ export default {
     },
 
     deleteTodo: function(todo, index) {
-      // this.$http.get('/delete/'+ this.todos[index].id)..then(function(data){
-      // this.$forceUpdate();
-      // });
-
-//Hide for back-end.start
       this.todos.splice(index, 1);
-//Hide for back-end.end
     },
 
     textToArray: function(tags){
@@ -156,14 +114,6 @@ export default {
       
     post: function() {
       this.textToArray(this.todo.tags);
-
-      // this.$http.post('', {
-      //     description: todo.description,
-      //     tags: todo.tags,
-      //     dueDate: todo.dueDate,
-      //  });
-
-//Hide for back-end.start
       this.alltodos.push({
            description: this.todo.description,
            tags: this.todo.tags,
@@ -184,13 +134,17 @@ export default {
       this.todo.description = '';
       this.todo.dueDate = '';
       this.todo.tags = [];
-//Hide for back-end.end
      },
   }
 }
 </script>
 
 <style>
+
+div#app {
+    width: unset;
+    height: unset;
+}
 
 html {
   -webkit-font-smoothing: antialiased;
